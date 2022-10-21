@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form GET index</title>
+</head>
+<body>
+    <form action="" method="get">
+        <label for="firstname_id">Firstname</label>
+        <input type="text" name="firstname" id="firstname_id">
+        <label for="lastname_id">Lastname</label>
+        <input type="text" name="lastname" id="lastname_id">
+        <input type="submit" value="submit">   
+    </form>
+    {% if data %}
+        <table>
+            <thead>
+                <th>id</th>
+                <th>username</th>
+                <th>firstname</th>
+                <th>lastname</th>
+            </thead>
+            <tbody>
+                {% for i in data %} 
+                <tr>
+                    <td>{{ i['id'] }}</td>
+                    <td>{{ i['username'] }}</td>
+                    <td>{{ i['firstname']}}</td>
+                    <td>{{ i['lastname'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Not Enter data</p>
+    {% endif %}
+</body>
+</html>
